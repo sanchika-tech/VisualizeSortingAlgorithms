@@ -37,6 +37,12 @@ const RenderList = async () => {
     node.className = "cell";
     node.setAttribute("value", String(element));
     node.style.height = `${3.8 * element}px`;
+
+    const valueLabel = document.createElement("span");
+    valueLabel.className = "value-label";
+    valueLabel.textContent = element;
+    node.appendChild(valueLabel);
+
     arrayNode.appendChild(node);
   }
 };
@@ -87,9 +93,42 @@ const response = () => {
     Navbar.className = "navbar";
   }
 };
+// Add event listener to the theme toggle button
+document.getElementById("theme-toggle").addEventListener("click", toggleTheme);
+
+// Function to toggle between light and dark themes
+function toggleTheme() {
+  // Toggle the 'dark' class on the body element
+  document.body.classList.toggle("dark");
+  // Store the user's preference in localStorage
+  localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+}
+
+// Function to set the initial theme based on user's preference stored in localStorage
+function setInitialTheme() {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    document.body.classList.add(savedTheme);
+  }
+}
+function updateStatistics(comparisonsCount, swapsCount, timeElapsed) {
+  document.getElementById('comparisons').textContent = `Comparisons: ${comparisonsCount}`;
+  document.getElementById('swaps').textContent = `Swaps: ${swapsCount}`;
+  document.getElementById('time').textContent = `Time: ${timeElapsed.toFixed(2)} seconds`;
+}
+// Call the setInitialTheme function when the page loads
+document.addEventListener("DOMContentLoaded", setInitialTheme);
 
 document.querySelector(".icon").addEventListener("click", response);
 document.querySelector(".start").addEventListener("click", start);
 document.querySelector(".size-menu").addEventListener("change", RenderScreen);
 document.querySelector(".algo-menu").addEventListener("change", RenderScreen);
 window.onload = RenderScreen;
+
+
+
+
+  
+
+
+
