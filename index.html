@@ -8,69 +8,98 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
-
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" href="unnamed.png">
   <link rel="stylesheet" href="style.css" />
   <title>Sorting visualizer</title>
 </head>
 
 <body>
-  <div class="nav-container">
-    <h2 class="title" onclick="window.location.reload()">
-      Sorting visualizer
-    </h2>
-    <div class="navbar" id="navbar">
-      <a id="random" onclick="RenderScreen()">Generate array</a>
-      <span class="options">
-        <select name="select sort algorithm" id="menu" class="algo-menu">
-          <option value="0">Choose algorithm</option>
-          <option value="1">Bubble Sort</option>
-          <option value="2">Selection Sort</option>
-          <option value="3">Insertion Sort</option>
-          <option value="4">Merge Sort</option>
-          <option value="5">Quick Sort</option>
-        </select>
-      </span>
-      <span class="options">
-        <select name="select array size" id="menu" class="size-menu">
-          <option value="0">Array size</option>
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="15">15</option>
-          <option value="20">20</option>
-          <option value="30">30</option>
-          <option value="40">40</option>
-          <option value="50">50</option>
-          <option value="60">60</option>
-          <option value="70">70</option>
-          <option value="80">80</option>
-          <option value="90">90</option>
-          <option value="100">100</option>
-        </select>
-      </span>
-      <span class="options">
-        <select name="speed of visualization" id="menu" class="speed-menu">
-          <option value="0">Speed</option>
-          <option value="0.5">0.50x</option>
-          <option value="0.75">0.75x</option>
-          <option value="1">1.00x</option>
-          <option value="2">2.00x</option>
-          <option value="4">4.00x</option>
-        </select>
-      </span>
-      <a class="start">Sort</a>
-      <a class="icon"><i class="fa fa-bars"></i></a>
-    </div>
+  <div id="page">
+    <header>
+      <div class="nav-container">
+        <h2 class="title" onclick="window.location.reload()">
+          Sorting visualizer
+        </h2>
+        <div class="navbar" id="navbar">
+          <a id="random" onclick="RenderScreen()">Generate array</a>
+          <span class="options">
+            <select name="select sort algorithm" id="menu" class="algo-menu">
+              <option value="0">Choose algorithm</option>
+              <option value="1" class="buubleSort">Bubble Sort</option>
+              <option value="2" class="selectionSort">Selection Sort</option>
+              <option value="3" class="insertionSort">Insertion Sort</option>
+              <option value="4" class="mergeSort">Merge Sort</option>
+              <option value="5" class="quickSort">Quick Sort</option>
+            </select>
+          </span>
+          <span class="options">
+            <select name="select array size" id="menu" class="size-menu">
+              <option value="0">Array size</option>
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+              <option value="40">40</option>
+              <option value="50">50</option>
+              <option value="60">60</option>
+              <option value="70">70</option>
+              <option value="80">80</option>
+              <option value="90">90</option>
+              <option value="100">100</option>
+            </select>
+          </span>
+          <span class="options">
+            <select name="speed of visualization" id="menu" class="speed-menu">
+              <option value="0">Speed</option>
+              <option value="0.5">0.50x</option>
+              <option value="0.75">0.75x</option>
+              <option value="1">1.00x</option>
+              <option value="2">2.00x</option>
+              <option value="4">4.00x</option>
+            </select>
+          </span>
+          <a class="start">Sort</a>
+          <!-- Add a button or toggle switch to allow users to switch between themes -->
+          <button id="theme-toggle" class="toggle">Toggle Theme</button>
+          <a class="icon"><i class="fa fa-bars"></i></a>
+        </div>
+      </div>
+    </header>
+    <nav>
+      <div class="statistics-content">
+        <h3>Statistics</h3> <br>
+        <div id="comparisons">Comparisons: 0</div>
+        <div id="swaps">Swaps: 0</div>
+        <div id="time">Time: 0 seconds</div> <br>
+      </div>
+      <div class="color-codes">
+        <span>
+          <h3>Color codes</h2>
+        </span> <br>
+        <div class="color-code" style="background-color: #9cec5b;"></div>
+        <span>Done</span> <br>
+        <div class="color-code" style="background-color: #6184d8;"></div>
+        <span>Visited</span> <br>
+        <div class="color-code" style="background-color: #FF595A;"></div>
+        <span>Current</span> <br>
+        <div class="color-code" style="background-color: #56365c;"></div>
+        <span>Min Position</span>
+      </div>
+    </nav>
+    <main>
+      <div class="center">
+        <div class="array"></div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>Created by Sanchika and Sreemoyee</p>
+    </footer>
   </div>
-  <div class="center">
-    <div class="array"></div>
-  </div>
-  <footer class="footer">
-    <p>Created by Sanchika and Sreemoyee</p>
-  </footer>
   <script src="script.js"></script>
   <script src="scripton.js"></script>
   <script src="sort-algorithms.js"></script>
+  <script src="swipe.js"></script>
 </body>
 
 </html>
