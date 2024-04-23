@@ -9,6 +9,7 @@ class sortAlgorithms {
 
     // BUBBLE SORT
     BubbleSort = async () => {
+
         let comparisonsCount = 0;
         let swapsCount = 0;
         let startTime = performance.now(); // Start time for timeElapsed calculation
@@ -28,13 +29,13 @@ class sortAlgorithms {
             this.list[this.size - i - 1].setAttribute("class", "cell done");
         }
         this.list[0].setAttribute("class", "cell done");
-
         let endTime = performance.now(); // End time for timeElapsed calculation
         let timeElapsed = (endTime - startTime) / 1000; // Time elapsed in seconds
 
         // Update statistics display
         updateStatistics(comparisonsCount, swapsCount, timeElapsed);
     }
+
 
     // INSERTION SORT
     InsertionSort = async () => {
